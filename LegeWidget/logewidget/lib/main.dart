@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logewidget/widget/Eventblock.dart';
+import 'package:logewidget/widget/defaultblock.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,27 +30,37 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  double _top = 0;
-  double _left = 0;
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned(
-          top: _top,
-          left: _left,
-          child: GestureDetector(
-            onTap: () => ('Tapeed!'),
-            onPanUpdate: (details) => setState(
-              () {
-                _top += details.delta.dy;
-                _left += details.delta.dx;
-              },
-            ),
-            child: const Eventblock(),
+    return Container(
+      decoration: BoxDecoration(color: Colors.lightBlue.shade100),
+      width: 500,
+      height: 500,
+      child: const Column(
+        children: [
+          Eventblock(),
+          SizedBox(
+            height: 10,
           ),
-        ),
-      ],
+          Defaultblock(),
+          SizedBox(
+            height: 10,
+          ),
+          Defaultblock(),
+          SizedBox(
+            height: 10,
+          ),
+          Defaultblock(),
+          SizedBox(
+            height: 10,
+          ),
+          Defaultblock(),
+          SizedBox(
+            height: 10,
+          ),
+          Defaultblock(),
+        ],
+      ),
     );
   }
 }
