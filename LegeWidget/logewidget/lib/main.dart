@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logewidget/widget/Eventblock.dart';
-import 'package:logewidget/widget/defaultblock.dart';
+import 'package:logewidget/widget/newdefaultblock.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,26 +39,9 @@ class _MyHomePageState extends State<MyHomePage> {
       child: const Column(
         children: [
           Eventblock(),
-          SizedBox(
-            height: 10,
+          Row(
+            children: [SizedBox(height: 100, width: 100), Newdefaultblock()],
           ),
-          Defaultblock(),
-          SizedBox(
-            height: 10,
-          ),
-          Defaultblock(),
-          SizedBox(
-            height: 10,
-          ),
-          Defaultblock(),
-          SizedBox(
-            height: 10,
-          ),
-          Defaultblock(),
-          SizedBox(
-            height: 10,
-          ),
-          Defaultblock(),
         ],
       ),
     );
