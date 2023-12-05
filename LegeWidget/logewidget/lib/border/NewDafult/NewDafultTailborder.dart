@@ -17,6 +17,7 @@ class NewDafultTailborder extends CustomPainter {
     var bottom = size.height - 10;
     var depth = 5 * sqrt(3);
 
+    final paint = Paint()
       ..strokeWidth = borderLineSize
       ..color = borderColor;
 
