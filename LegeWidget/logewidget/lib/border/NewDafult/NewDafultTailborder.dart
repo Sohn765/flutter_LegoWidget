@@ -1,23 +1,30 @@
+import 'package:flutter/material.dart';
 import 'dart:math';
 
-import 'package:flutter/material.dart';
+class NewDafultTailborder extends CustomPainter {
+  final double borderLineSize;
+  final Color borderColor;
 
-class EventTail extends CustomClipper<Path> {
+  const NewDafultTailborder({
+    required this.borderLineSize,
+    required this.borderColor,
+  });
+
   @override
-  Path getClip(Size size) {
-    var path = Path();
-
+  void paint(Canvas canvas, Size size) {
     var radius = 4.0;
-    var radius2 = 8.0;
     var arcRadius = radius * sqrt(3);
     var bottom = size.height - 10;
     var depth = 5 * sqrt(3);
 
-    path.moveTo(0, 0);
-    path.lineTo(0, bottom - radius2);
-    path.quadraticBezierTo(0, bottom, radius2, bottom);
+      ..strokeWidth = borderLineSize
+      ..color = borderColor;
 
-    path.lineTo(20 - radius, bottom); //
+    var path = Path();
+    path.moveTo(8, bottom);
+
+    //육각형 시작
+    path.lineTo(20 - radius, bottom);
     path.arcToPoint(
         Offset(
             20 + radius * cos(pi * 1 / 3), bottom + radius * sin(pi * 1 / 3)),
@@ -29,27 +36,26 @@ class EventTail extends CustomClipper<Path> {
     path.arcToPoint(Offset(25 + radius, bottom + depth),
         radius: Radius.circular(arcRadius), clockwise: false);
 
-    path.lineTo(65 - radius, bottom + depth);
+    path.lineTo(55 - radius, bottom + depth);
 
     path.arcToPoint(
-        Offset(65 + radius * cos(pi * 1 / 3),
+        Offset(55 + radius * cos(pi * 1 / 3),
             bottom + depth - radius * sin(pi * 1 / 3)),
         radius: Radius.circular(arcRadius),
         clockwise: false);
-
     path.lineTo(
-        70 - radius * cos(pi * 1 / 3), bottom + radius * sin(pi * 1 / 3));
-
-    path.arcToPoint(Offset(70 + radius, bottom),
+        60 - radius * cos(pi * 1 / 3), bottom + radius * sin(pi * 1 / 3));
+    path.arcToPoint(Offset(60 + radius, bottom),
         radius: Radius.circular(arcRadius), clockwise: true);
 
+    //육각형 끝
     path.lineTo(size.width, bottom);
-    path.lineTo(size.width, 30);
-    return path;
+
+    canvas.drawPath(path, paint);
   }
 
   @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    throw UnimplementedError();
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
   }
 }

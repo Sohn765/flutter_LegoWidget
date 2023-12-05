@@ -28,9 +28,6 @@ class _EventblockState extends State<Eventblock> {
         transform: Matrix4.translationValues(0, 0, 0),
         child: Row(
           children: [
-            const SizedBox(
-              width: 100,
-            ),
             Stack(
               children: [
                 CustomPaint(

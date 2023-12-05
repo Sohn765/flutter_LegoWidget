@@ -25,7 +25,7 @@ class bottomBorder extends CustomPainter {
       ..color = borderColor;
 
     final path = Path();
-    path.moveTo(startPointX, 30);
+    path.moveTo(startPointX, 0);
     path.lineTo(startPointX, bottom - radius2);
     path.quadraticBezierTo(0, bottom, radius2, bottom);
 

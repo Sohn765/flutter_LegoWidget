@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logewidget/widget/Eventblock.dart';
+import 'package:logewidget/widget/defaultblock.dart';
 import 'package:logewidget/widget/newdefaultblock.dart';
 
 void main() {
@@ -32,17 +33,47 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Colors.lightBlue.shade100),
-      width: 500,
-      height: 500,
-      child: const Column(
-        children: [
-          Eventblock(),
-          Row(
-            children: [SizedBox(height: 100, width: 100), Newdefaultblock()],
-          ),
-        ],
+    return SingleChildScrollView(
+      child: Container(
+        decoration: BoxDecoration(color: Colors.lightBlue.shade100),
+        width: 500,
+        height: 500,
+        child: const Row(
+          children: [
+            SizedBox(
+              width: 100,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Eventblock(),
+                SizedBox(
+                  height: 100,
+                ),
+                Defaultblock(),
+                Defaultblock(),
+                NewDefaultBlock(
+                    color: Colors.amber,
+                    borderColor: Color.fromARGB(255, 161, 121, 0),
+                    widgetList: []),
+                NewDefaultBlock(
+                    color: Colors.lightBlue,
+                    borderColor: Color.fromARGB(255, 0, 114, 167),
+                    widgetList: [
+                      Text("asdfasdfa"),
+                      SizedBox(width: 30, height: 10),
+                      Text("rrrrrr"),
+                      Text("asdfasdfa"),
+                      SizedBox(width: 30, height: 30),
+                      Text("rrrrrr"),
+                      Text("asdfasdfa"),
+                      SizedBox(width: 30, height: 30),
+                      Text("rrrrrr"),
+                    ]),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -28,14 +28,11 @@ class _DefaultblockState extends State<Defaultblock> {
         transform: Matrix4.translationValues(0, 0, 0),
         child: Row(
           children: [
-            const SizedBox(
-              width: 100,
-            ),
             Stack(
               children: [
                 CustomPaint(
                   painter: ClipShadowShadowPainter(
-                    clipper: DefaultTail(),
+                    clipper: DefaultTailPath(),
                     shadow: const Shadow(
                         blurRadius: 3,
                         offset: Offset(2, 12),
@@ -44,7 +41,7 @@ class _DefaultblockState extends State<Defaultblock> {
                   child: Container(
                     transform: Matrix4.translationValues(-0.3, 11, 0),
                     child: ClipPath(
-                      clipper: DefaultTail(),
+                      clipper: DefaultTailPath(),
                       child: Container(
                         width: 80,
                         height: 50,
@@ -69,7 +66,8 @@ class _DefaultblockState extends State<Defaultblock> {
                     child: CustomPaint(
                         painter: DefaultTopBorder(
                             borderLineSize: borderLineSize,
-                            borderColor: borderColor)),
+                            borderColor: borderColor),
+                        child: const Text("asdkfja")),
                   ),
                 ),
               ],
